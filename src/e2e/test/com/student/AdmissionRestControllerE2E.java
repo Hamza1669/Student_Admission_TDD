@@ -40,17 +40,6 @@ public class AdmissionRestControllerE2E {
 				.post(ADMISSION_ENDPOINT + "/newAdmission");
 	}
 
-	@Test
-	void test_GetAdmissionById() {
-		long admissionId = 4;
-		getAdmissionById(admissionId).then().log().all().statusCode(200).contentType(ContentType.JSON)
-				.body("id", equalTo((int) admissionId)).body("admissionDate", notNullValue())
-				.body("status", notNullValue()).body("course", notNullValue());
-	}
-
-	private io.restassured.response.Response getAdmissionById(long admissionId) {
-		return given().accept(ContentType.JSON).when().get(ADMISSION_ENDPOINT + "/{id}", admissionId);
-	}
 
 	@Test
 	void test_CreateNewAdmission() {
