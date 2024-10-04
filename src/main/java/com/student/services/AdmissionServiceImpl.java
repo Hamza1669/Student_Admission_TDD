@@ -3,8 +3,6 @@ package com.student.services;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-
-
 import org.springframework.stereotype.Service;
 
 import com.student.model.Admission;
@@ -12,10 +10,9 @@ import com.student.repositories.AdmissionRepository;
 
 import jakarta.transaction.Transactional;
 
-
 @Service
 public class AdmissionServiceImpl implements AdmissionService {
-	
+
 	private AdmissionRepository admissionRepository;
 
 	public AdmissionServiceImpl(AdmissionRepository admissionRepository) {
@@ -26,7 +23,7 @@ public class AdmissionServiceImpl implements AdmissionService {
 	public List<Admission> readAllExistingAdmissions() {
 		return this.admissionRepository.findAll();
 	}
- 
+
 	@Transactional
 	public Admission findAdmissionById(long id) {
 		return admissionRepository.findById(id).orElse(null);
@@ -43,15 +40,14 @@ public class AdmissionServiceImpl implements AdmissionService {
 		replacement.setId(id);
 		return admissionRepository.save(replacement);
 	}
+
 	@Transactional
 	public void deleteAdmissionById(Long admissionId) {
-	    // Check if the student details available 
-	    Admission existingAdmission = admissionRepository.findById(admissionId)
-	            .orElseThrow(() -> new NoSuchElementException("Admission does not exist"));
+		// Check if the student details available
+		Admission existingAdmission = admissionRepository.findById(admissionId)
+				.orElseThrow(() -> new NoSuchElementException("Admission does not exist"));
 
-	    admissionRepository.delete(existingAdmission);
+		admissionRepository.delete(existingAdmission);
 	}
-	
-
 
 }

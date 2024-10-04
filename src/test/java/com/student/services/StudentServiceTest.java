@@ -183,12 +183,12 @@ class StudentServiceTest {
 
 	@Test
 	void test_ReadAllStudents_TransactionalException() {
-	    when(studentRepository.findAll()).thenThrow(new TransactionSystemException("Transaction failed"));
+		when(studentRepository.findAll()).thenThrow(new TransactionSystemException("Transaction failed"));
 
-	    TransactionSystemException exception = assertThrows(TransactionSystemException.class, 
-	    	    studentService::readAllStudents);
+		TransactionSystemException exception = assertThrows(TransactionSystemException.class,
+				studentService::readAllStudents);
 
-	    assertThat(exception.getMessage()).isEqualTo("Transaction failed");
-	    verify(studentRepository, times(1)).findAll();
+		assertThat(exception.getMessage()).isEqualTo("Transaction failed");
+		verify(studentRepository, times(1)).findAll();
 	}
 }

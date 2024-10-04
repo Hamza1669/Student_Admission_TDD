@@ -54,8 +54,7 @@ class AdmissionRestControllerTest {
 				.andExpect(status().isOk()).andExpect(jsonPath("$[0].id", is(1)))
 				.andExpect(jsonPath("$[0].admissionDate", is("2021-02-02")))
 				.andExpect(jsonPath("$[0].status", is("pending"))).andExpect(jsonPath("$[0].course", is("bachelors")))
-				.andExpect(jsonPath("$[1].id", is(2)))
-				.andExpect(jsonPath("$[1].admissionDate", is("2021-10-02")))
+				.andExpect(jsonPath("$[1].id", is(2))).andExpect(jsonPath("$[1].admissionDate", is("2021-10-02")))
 				.andExpect(jsonPath("$[1].status", is("approved"))).andExpect(jsonPath("$[1].course", is("masters")));
 	}
 

@@ -1,9 +1,9 @@
 package com.student;
 
+import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static io.restassured.RestAssured.given;
 
 import java.time.LocalDate;
 
@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -20,12 +22,9 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import com.student.model.Admission;
 import com.student.repositories.AdmissionRepository;
-import org.springframework.boot.test.web.server.LocalServerPort;
-
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.springframework.http.MediaType;
 
 @Testcontainers
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
