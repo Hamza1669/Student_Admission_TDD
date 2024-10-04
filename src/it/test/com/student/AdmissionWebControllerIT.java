@@ -16,13 +16,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
-
 import com.student.model.Admission;
 import com.student.repositories.AdmissionRepository;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class AdmissionWebControllerIT {
-	
+
 	@Autowired
 	private AdmissionRepository admissionRepository;
 
@@ -54,23 +53,22 @@ class AdmissionWebControllerIT {
 
 		driver.get(baseUrl + "/deleteAdmission/" + admission.getId());
 
-		assertFalse(admissionRepository.findById(admission.getId()).isPresent(),
-				"Admission deleted");
+		assertFalse(admissionRepository.findById(admission.getId()).isPresent(), "Admission deleted");
 
 	}
+
 	@Test
 	void test_ShowNewAdmissionForm() {
-	    driver.get(baseUrl + "/newAdmission");
-	    driver.findElement(By.name("admissionDate")).sendKeys("2021-02-02");
-	    driver.findElement(By.name("status")).sendKeys("pending");
-	    driver.findElement(By.name("course")).sendKeys("bachelors");
+		driver.get(baseUrl + "/newAdmission");
+		driver.findElement(By.name("admissionDate")).sendKeys("2021-02-02");
+		driver.findElement(By.name("status")).sendKeys("pending");
+		driver.findElement(By.name("course")).sendKeys("bachelors");
 
-	    driver.findElement(By.name("btn_submit")).click();
+		driver.findElement(By.name("btn_submit")).click();
 
-	    String currentUrl = driver.getCurrentUrl();
-	    assertThat(currentUrl).isEqualTo(baseUrl + "/admissions"); 
-	    
+		String currentUrl = driver.getCurrentUrl();
+		assertThat(currentUrl).isEqualTo(baseUrl + "/admissions");
+
 	}
-
 
 }

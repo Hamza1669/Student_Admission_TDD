@@ -1,13 +1,15 @@
 package com.student;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 public class AdmissionRestControllerE2E {
 
@@ -25,10 +27,10 @@ public class AdmissionRestControllerE2E {
 	void setupTestData() {
 		String newAdmissionJson = """
 				{
-				    "id": 2,
-				    "admissionDate": "2024-01-01",
-				    "status": "Pending",
-				    "course": "Bachelors"
+				"id": 2,
+				"admissionDate": "2024-01-01",
+				"status": "Pending",
+				"course": "Bachelors"
 				}
 				""";
 
@@ -45,9 +47,9 @@ public class AdmissionRestControllerE2E {
 	void test_CreateNewAdmission() {
 		String newAdmissionJson = """
 				{
-				    "admissionDate": "2024-02-11",
-				    "status": "Approved",
-				    "course": "Masters"
+				"admissionDate": "2024-02-11",
+				"status": "Approved",
+				"course": "Masters"
 				}
 				""";
 

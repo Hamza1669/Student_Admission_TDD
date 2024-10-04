@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.student.model.Admission;
 
 @Repository
-public interface AdmissionRepository  extends JpaRepository <Admission, Long> {
+public interface AdmissionRepository extends JpaRepository<Admission, Long> {
 
 }

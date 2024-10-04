@@ -90,14 +90,11 @@ class StudentWebControllerTest {
 
 	@Test
 	void test_EditStudent_WhenStudentIsNotFound() throws Exception {
-	    when(studentService.findStudentById(1L)).thenReturn(null);
+		when(studentService.findStudentById(1L)).thenReturn(null);
 
-	    mvc.perform(get("/edit/1"))
-	        .andExpect(view().name("edit"))
-	        .andExpect(model().attribute("student", nullValue()))
-	        .andExpect(model().attribute("message", "No student found with id: 1"));
+		mvc.perform(get("/edit/1")).andExpect(view().name("edit")).andExpect(model().attribute("student", nullValue()))
+				.andExpect(model().attribute("message", "No student found with id: 1"));
 	}
-
 
 	@Test
 	void test_EditNewStudent() throws Exception {
@@ -108,7 +105,6 @@ class StudentWebControllerTest {
 				.andExpect(model().attribute("message", ""));
 		verifyNoInteractions(studentService);
 	}
-
 
 	@Test
 	void test_PostStudentWithoutId_ShouldInsertNewStudent() throws Exception {

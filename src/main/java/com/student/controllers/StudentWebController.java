@@ -22,12 +22,12 @@ public class StudentWebController {
 	private static final String STUDENT = "student";
 
 	private final StudentService studentService;
-    private final AdmissionService admissionService;
+	private final AdmissionService admissionService;
 
-    public StudentWebController(StudentService studentService, AdmissionService admissionService) {
-        this.studentService = studentService;
-        this.admissionService = admissionService;
-    }
+	public StudentWebController(StudentService studentService, AdmissionService admissionService) {
+		this.studentService = studentService;
+		this.admissionService = admissionService;
+	}
 
 	@GetMapping("/")
 	public String index(Model model) {

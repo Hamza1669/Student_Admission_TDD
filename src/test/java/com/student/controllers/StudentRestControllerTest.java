@@ -1,5 +1,6 @@
 package com.student.controllers;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -29,8 +30,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.student.model.Admission;
 import com.student.model.Student;
 import com.student.services.StudentService;
-
-import static java.util.Arrays.asList;
 
 @ExtendWith(MockitoExtension.class)
 @WebMvcTest(controllers = StudentRestController.class)
@@ -119,9 +118,8 @@ class StudentRestControllerTest {
 	void test_DeleteStudent_NotFound() throws Exception {
 		doThrow(new NoSuchElementException("Student does not exist")).when(studentService).deleteStudentById(anyLong());
 
-		this.mvc.perform(delete("/api/students/deleteStudent/999")).andExpect(status().isNotFound()); // Expecting a 404
-																										// Not Found
-																										// status
+		this.mvc.perform(delete("/api/students/deleteStudent/999")).andExpect(status().isNotFound());
+
 	}
 
 }

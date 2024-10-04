@@ -81,21 +81,20 @@ class AdmissionWebControllerTest {
 	@Test
 	void test_PostAdmissionWithoutId_ShouldInsertewAdmission() throws Exception {
 
-		mvc.perform(post("/saveAdmission").param("admissionDate", "2021-02-02").param("status", "pending").param("course", "bachelors"))
-				.andExpect(redirectedUrl("/admissions"));
+		mvc.perform(post("/saveAdmission").param("admissionDate", "2021-02-02").param("status", "pending")
+				.param("course", "bachelors")).andExpect(redirectedUrl("/admissions"));
 
 		verify(admissionService).createNewAdmissionDetails(ArgumentMatchers.any(Admission.class));
 	}
 
 	@Test
 	void test_PostAdmissionWithId_ShouldUpdateExistingAdmission() throws Exception {
-		mvc.perform(
-				post("/saveAdmission").param("id", "1").param("admissionDate", "2021-02-02").param("status", "pending").param("course", "bachelors"))
-				.andExpect(redirectedUrl("/admissions"));
+		mvc.perform(post("/saveAdmission").param("id", "1").param("admissionDate", "2021-02-02")
+				.param("status", "pending").param("course", "bachelors")).andExpect(redirectedUrl("/admissions"));
 
 		verify(admissionService).updateAdmissionInformation(eq(1L), ArgumentMatchers.any(Admission.class));
 	}
-	
+
 	@Test
 	void test_DeleteAdmission_ByExistingIdShouldDelete() throws Exception {
 		mvc.perform(get("/deleteAdmission/1")).andExpect(view().name("/delete_admission"));
