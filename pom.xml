@@ -156,6 +156,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
+					<skipTests>${skip.unit-tests}</skipTests>
 					<includes>
 						<include>**/*Test.java</include>
 					</includes>
@@ -167,6 +168,7 @@
 				<executions>
 					<execution>
 						<configuration>
+							<skipTests>${skip.integration-tests}</skipTests>
 							<includes>
 								<include>**/*ApplicationTests.java</include>
 								<include>**/*IT.java</include>
