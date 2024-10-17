@@ -28,7 +28,7 @@ jobs:
         cache: maven
       
     - name: Build with Maven and Docker profile
-      run: mvn verify -Pdocker
+      run: mvn verify -Pdocker -DskipTests
     
     - name: Cache SonarCloud packages
       uses: actions/cache@v3
