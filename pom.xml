@@ -460,9 +460,23 @@
 						<groupId>io.fabric8</groupId>
 						<artifactId>docker-maven-plugin</artifactId>
 						<version>0.38.1</version>
+						<executions>
+							<execution>
+								<id>start-postgres</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>start</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>stop-postgres</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
 						<configuration>
-							<showLogs>true</showLogs>
-							<verbose>build</verbose>
 							<images>
 								<image>
 									<name>postgres:latest</name>
@@ -477,21 +491,12 @@
 										</ports>
 										<wait>
 											<log>.*database system is ready to accept connections.*</log>
-											<time>60000</time>
+											<time>120000</time> <!-- Wait up to 120 seconds -->
 										</wait>
 									</run>
 								</image>
 							</images>
 						</configuration>
-						<executions>
-							<execution>
-								<id>start-postgres</id>
-								<phase>pre-integration-test</phase>
-								<goals>
-									<goal>start</goal>
-								</goals>
-							</execution>
-						</executions>
 					</plugin>
 					<plugin>
 						<groupId>org.springframework.boot</groupId>
@@ -528,10 +533,10 @@
 								</goals>
 								<configuration>
 									<includes>
-										<include>**/*E2E.java</include> 
+										<include>**/*E2E.java</include>
 									</includes>
 									<excludes>
-										<exclude>**/*IT.java</exclude> 
+										<exclude>**/*IT.java</exclude>
 									</excludes>
 								</configuration>
 							</execution>
