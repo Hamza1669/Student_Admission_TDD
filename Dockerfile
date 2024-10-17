@@ -1,5 +1,5 @@
 # Step 1: Use a base image with JDK installed
-FROM openjdk:17-jdk-alpine
+FROM openjdk:17-jdk
 
 # Step 2: Add a volume to be able to store log files or any other data
 VOLUME /tmp
