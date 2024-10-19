@@ -11,3 +11,18 @@ This project focuses on developing a Student Admission System capable of perform
 [![Java CI with Maven](https://github.com/Hamza1669/Student_Admission_TDD/actions/workflows/maven.yml/badge.svg)](https://github.com/Hamza1669/Student_Admission_TDD/actions/workflows/maven.yml)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Hamza1669_Student_Admission_TDD&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Hamza1669_Student_Admission_TDD)
 Coveralls Badge: [![Coverage Status](https://coveralls.io/repos/github/Hamza1669/Student_Admission_TDD/badge.svg?branch=master)](https://coveralls.io/github/Hamza1669/Student_Admission_TDD?branch=master)
+
+Steps to run e2e tests from Eclipse:
+Start the PostgreSQL Docker container manually by running: mvn docker:start -Pdocker
+Run e2e tests in eclipse Run as Junit test
+After running the tests, stop the PostgreSQL container with: mvn docker:stop -Pdocker
+
+
+To run only e2e tests from command line: mvn clean verify -Pe2e-tests (It starts PostgreSQL Docker container runs all the e2e tests and than stop the PostgreSQL container).
+
+Steps to start real application from command line: 
+Start the PostgreSQL Docker container manually by running: mvn docker:start -Pdocker
+Start the application with PostgreSQL:mvn spring-boot:run -Pdocker
+
+
+
