@@ -14,20 +14,20 @@ Coveralls Badge: [![Coverage Status](https://coveralls.io/repos/github/Hamza1669
 
 - Steps to run e2e tests from Eclipse:
 
-Start the PostgreSQL Docker container manually by running: mvn docker:start -Pdocker
+1. Start the PostgreSQL Docker container manually by running: mvn docker:start -Pdocker
 
-Run e2e tests in eclipse Run as Junit test
+2. Run e2e tests in eclipse Run as Junit test
 
-After running the tests, stop the PostgreSQL container with: mvn docker:stop -Pdocker
+3. After running the tests, stop the PostgreSQL container with: mvn docker:stop -Pdocker
 
 
 - To run only e2e tests from command line: mvn clean verify -Pe2e-tests (It starts PostgreSQL Docker container runs all the e2e tests and than stop the PostgreSQL container).
 
 - Steps to start real application from command line: 
 
-Start the PostgreSQL Docker container manually by running: mvn docker:start -Pdocker
+1. Start the PostgreSQL Docker container manually by running: mvn docker:start -Pdocker
 
-Start the application with PostgreSQL:mvn spring-boot:run -Pdocker
+2. Start the application with PostgreSQL:mvn spring-boot:run -Pdocker
 
 
 
