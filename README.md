@@ -13,8 +13,11 @@ This project focuses on developing a Student Admission System capable of perform
 Coveralls Badge: [![Coverage Status](https://coveralls.io/repos/github/Hamza1669/Student_Admission_TDD/badge.svg?branch=master)](https://coveralls.io/github/Hamza1669/Student_Admission_TDD?branch=master)
 
 Steps to run e2e tests from Eclipse:
+
 Start the PostgreSQL Docker container manually by running: mvn docker:start -Pdocker
+
 Run e2e tests in eclipse Run as Junit test
+
 After running the tests, stop the PostgreSQL container with: mvn docker:stop -Pdocker
 
 
