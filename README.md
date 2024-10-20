@@ -21,7 +21,9 @@ After running the tests, stop the PostgreSQL container with: mvn docker:stop -Pd
 To run only e2e tests from command line: mvn clean verify -Pe2e-tests (It starts PostgreSQL Docker container runs all the e2e tests and than stop the PostgreSQL container).
 
 Steps to start real application from command line: 
+
 Start the PostgreSQL Docker container manually by running: mvn docker:start -Pdocker
+
 Start the application with PostgreSQL:mvn spring-boot:run -Pdocker
 
 
