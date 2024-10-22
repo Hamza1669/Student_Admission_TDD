@@ -38,7 +38,6 @@ class AdmissionWebControllerIT {
 	public void setup() {
 		baseUrl = "http://localhost:" + port;
 		driver = new HtmlUnitDriver();
-		// always start with an empty database
 		admissionRepository.deleteAll();
 		admissionRepository.flush();
 	}

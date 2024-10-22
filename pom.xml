@@ -24,8 +24,10 @@
 			**/*StudentAdmissionTddApplication.*,
 			**/model/**
 		</sonar.coverage.exclusions>
-		<sonar.issue.ignore.multicriteria>e11</sonar.issue.ignore.multicriteria>
-		<sonar.issue.ignore.multicriteria.e11.ruleKey>java:S4684</sonar.issue.ignore.multicriteria.e11.ruleKey>
+		<sonar.issue.ignore.multicriteria>e11
+		</sonar.issue.ignore.multicriteria>
+		<sonar.issue.ignore.multicriteria.e11.ruleKey>java:S4684
+		</sonar.issue.ignore.multicriteria.e11.ruleKey>
 		<sonar.issue.ignore.multicriteria.e11.resourceKey>**/controllers/*.java
 		</sonar.issue.ignore.multicriteria.e11.resourceKey>
 	</properties>
@@ -73,7 +75,6 @@
 			<artifactId>testcontainers</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>junit-jupiter</artifactId>
@@ -138,13 +139,7 @@
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
 		</dependency>
-
-
-
 	</dependencies>
-
-
-
 
 	<build>
 		<plugins>
@@ -286,7 +281,6 @@
 						<executions>
 							<execution>
 								<configuration>
-									<!-- For performing code coverage only for surefire tests (not failsafe) -->
 									<propertyName>surefireArgLine</propertyName>
 								</configuration>
 								<goals>
@@ -311,7 +305,6 @@
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
-							<!-- Code coverage only for surefire tests -->
 							<argLine>${surefireArgLine}</argLine>
 						</configuration>
 					</plugin>
@@ -396,7 +389,7 @@
 										</ports>
 										<wait>
 											<log>.*database system is ready to accept connections.*</log>
-											<time>120000</time> <!-- Wait up to 120 seconds -->
+											<time>120000</time>
 										</wait>
 									</run>
 								</image>
@@ -491,7 +484,7 @@
 										</ports>
 										<wait>
 											<log>.*database system is ready to accept connections.*</log>
-											<time>120000</time> <!-- Wait up to 120 seconds -->
+											<time>120000</time>
 										</wait>
 									</run>
 								</image>

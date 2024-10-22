@@ -42,7 +42,6 @@ public class AdmissionRestControllerE2E {
 				.post(ADMISSION_ENDPOINT + "/newAdmission");
 	}
 
-
 	@Test
 	void test_CreateNewAdmission() {
 		String newAdmissionJson = """

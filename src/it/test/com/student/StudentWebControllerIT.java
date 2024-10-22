@@ -39,7 +39,6 @@ class StudentWebControllerIT {
 	public void setup() {
 		baseUrl = "http://localhost:" + port;
 		driver = new HtmlUnitDriver();
-		// always start with an empty database
 		studentRepository.deleteAll();
 		studentRepository.flush();
 	}
@@ -55,7 +54,6 @@ class StudentWebControllerIT {
 		Student testStudent = studentRepository
 				.save(new Student(null, "Hamza", "Khan", "Hamzakhan1@gmail.com", admission));
 		driver.get(baseUrl);
-		// the table shows the test student
 		assertThat(driver.findElement(By.id("student_record")).getText()).contains("Hamza", "Khan",
 				"Hamzakhan1@gmail.com", "Edit", "Delete");
 

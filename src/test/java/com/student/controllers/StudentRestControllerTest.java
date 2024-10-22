@@ -45,7 +45,6 @@ class StudentRestControllerTest {
 	void test_AllStudentsEmpty() throws Exception {
 		this.mvc.perform(get("/api/students/allStudents").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andExpect(content().json("[]"));
-		// the above checks that the content is an empty JSON list
 	}
 
 	@Test
@@ -121,5 +120,4 @@ class StudentRestControllerTest {
 		this.mvc.perform(delete("/api/students/deleteStudent/999")).andExpect(status().isNotFound());
 
 	}
-
 }

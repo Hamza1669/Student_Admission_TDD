@@ -22,7 +22,6 @@ class AdmissionWebControllerE2E {
 
 	@BeforeAll
 	public static void setupClass() {
-		// setup Chrome Driver
 		WebDriverManager.chromedriver().setup();
 	}
 

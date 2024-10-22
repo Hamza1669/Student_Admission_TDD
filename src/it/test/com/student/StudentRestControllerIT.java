@@ -1,9 +1,9 @@
 package com.student;
 
+import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static io.restassured.RestAssured.given;
 
 import java.time.LocalDate;
 
@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -22,9 +23,9 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import com.student.model.Admission;
 import com.student.model.Student;
 import com.student.repositories.StudentRepository;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.springframework.http.MediaType;
 
 @Testcontainers
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -52,7 +53,6 @@ public class StudentRestControllerIT {
 	@BeforeEach
 	public void setup() {
 		RestAssured.port = port;
-		// always start with an empty database
 		studentRepository.deleteAll();
 		studentRepository.flush();
 	}

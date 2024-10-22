@@ -42,7 +42,6 @@ class AdmissionRestControllerTest {
 	void test_AllAdmissionsEmpty() throws Exception {
 		this.mvc.perform(get("/api/admissions/allAdmissions").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andExpect(content().json("[]"));
-		// the above checks that the content is an empty JSON list
 	}
 
 	@Test
